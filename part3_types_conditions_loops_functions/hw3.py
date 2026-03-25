@@ -192,9 +192,8 @@ def build_available_categories() -> list[str]:
             continue
 
         categories.extend(
-               f"{common_category}{CATEGORY_SEPARATOR}{target_category}"
-               for target_category in target_categories
-           )
+            f"{common_category}{CATEGORY_SEPARATOR}{target_category}" for target_category in target_categories
+        )
 
     return categories
 
@@ -371,9 +370,7 @@ def build_details_lines(details_map: dict[str, float]) -> list[str]:
 
     for index, category_name in enumerate(sorted(details_map.keys()), start=1):
         detail_name = get_detail_name(category_name)
-        lines.append(
-            f"{index}. {detail_name}: {format_money(details_map[category_name])}"
-        )
+        lines.append(f"{index}. {detail_name}: {format_money(details_map[category_name])}")
 
     return lines
 
