@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 K = TypeVar("K")
 V = TypeVar("V")
 
+type DescriptorResult[V] = V | CachedProperty[V]
 
 @dataclass
 class DictStorage(Storage[K, V]):
@@ -150,7 +151,7 @@ class CachedProperty[V]:
     def __init__(self, func: Callable[..., V]) -> None:
         self.func = func
 
-    def __get__(self, instance: HasCache[str, V] | None, owner: type) -> V | CachedProperty[V]:
+    def __get__(self, instance: HasCache[str, V] | None, owner: type) -> DescriptorResult[V]:
         if instance is None:
             return self
 
