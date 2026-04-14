@@ -13,6 +13,7 @@ V = TypeVar("V")
 
 type DescriptorResult[V] = V | CachedProperty[V]
 
+
 @dataclass
 class DictStorage(Storage[K, V]):
     _data: dict[K, V] = field(default_factory=dict, init=False)
