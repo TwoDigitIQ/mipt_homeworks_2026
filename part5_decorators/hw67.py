@@ -33,7 +33,7 @@ class CircuitBreaker:
         self,
         critical_count: int = 5,
         time_to_recover: int = 1,
-        triggers_on: type[Exception],
+        triggers_on: type[Exception] = Exception,
     ) -> None:
         errors: list[ValueError] = []
 
