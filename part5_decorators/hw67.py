@@ -31,8 +31,8 @@ class BreakerError(Exception):
 class CircuitBreaker:
     def __init__(
         self,
-        critical_count: int,
-        time_to_recover: int,
+        critical_count: int = 5,
+        time_to_recover: int = 1,
         triggers_on: type[Exception],
     ) -> None:
         errors: list[ValueError] = []
