@@ -67,3 +67,20 @@ python final_project/main.py
 ```text
 Проверь код @::final_project/example.py::
 ```
+
+## Архитектура
+
+Проект выполнен ак консольное приложение.
+
+```text
+final_project/
+  main.py       точка входа
+  cli.py        консольный интерфейс и команды
+  chat.py       состояние сессии, история и подготовка сообщений
+  llm.py        OpenAI-compatible клиент
+  config.py     загрузка и валидация настроек
+  messages.py   представление сообщений
+  context.py    ограничение длины контекста
+  files.py      подстановка файлов через @::filepath::
+  chunks.py     разбиение файлов на чанки
+  errors.py     ошибки приложения
