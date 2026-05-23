@@ -1,12 +1,88 @@
 # Итоговый проект "GigaVibeMiptCode"
 
-Актуальный текст задания доступен [здесь](https://docs.google.com/document/d/1hjEwsQd8m6-esJA37ZkGNIwK9Rn2edBC0MozFxpqxRg/edit?usp=sharing).
+Консольный чат-бот для общения с LLM через OpenAI-compatible API.
 
-**Дедлайн загрузки решений: 23:59 22 мая.**
+## Возможности
 
-В рамках проекта вам предстоит создать собственного ИИ-ассистента с консольным интерфейсом, который будет обрабатывать пользовательский ввод, отправлять запросы к LLM и выводить пользователю ответы в разных режимах.
+- чат с LLM;
+- история сообщений;
+- ограничение контекста по числу сообщений и символов;
+- конфигурация через `config.yaml` и переменные окружения;
+- streaming response;
+- подстановка файлов через `@::filepath::`;
+- обработка файлов по чанкам через `/filechunk`;
 
-Решения необходимо подгрузить в форки данного репозитория.
+## Установка
 
-Требования к линтерам смягчены: используйте ruff check с конфигурацией из нового ruff.toml
-Проверку типов выполняем через простой запуск mypy.
+```bash
+python -m pip install -r final_project/requirements.txt
+```
+
+Для локального запуска через Ollama:
+
+```powershell
+irm https://ollama.com/install.ps1 | iex
+ollama pull gemma3:270m
+```
+
+## Конфигурация
+
+Создайте файл `final_project/config.yaml`:
+
+```yaml
+api_key: ollama
+api_host: http://localhost:11434/v1/
+model: gemma3:270m
+limit_message: 20
+limit_chars: 2000
+temperature: 0.7
+system_prompt: You are a helpful assistant.
+stream: true
+```
+
+## Запуск
+
+Из корня репозитория:
+
+```bash
+python final_project/main.py
+```
+
+
+## Команды
+
+```text
+\q                         выход
+/reset                     очистить историю
+/filechunk                 обработать файл по абзацам
+/file_chunk                то же самое
+/filechunk paragraph=3     по 3 абзаца
+/filechunk len=150         по 150 символов
+/filechunk len=150 -y      обработать все чанки без подтверждения
+```
+
+
+## Подстановка файлов
+
+```text
+Проверь код @::final_project/example.py::
+```
+
+## Архитектура
+
+Проект выполнен ак консольное приложение.
+
+```text
+final_project/
+  main.py       точка входа
+  gigavibe/
+	cli.py        консольный интерфейс и команды
+	chat.py       состояние сессии, история и подготовка сообщений
+	llm.py        OpenAI-compatible клиент
+	config.py     загрузка и валидация настроек
+	messages.py   представление сообщений
+	context.py    ограничение длины контекста
+	files.py      подстановка файлов через @::filepath::
+	chunks.py     разбиение файлов на чанки
+	errors.py     ошибки приложения
+  tests/
