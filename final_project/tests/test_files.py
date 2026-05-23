@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from errors import FileInjectionError
-from files import inject_files, read_text_file
+from gigavibe.errors import FileInjectionError
+from gigavibe.files import inject_files, read_text_file
 
 
 def write_file(tmp_path: Path, name: str, content: str) -> Path:

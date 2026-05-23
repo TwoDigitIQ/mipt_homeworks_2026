@@ -1,7 +1,7 @@
-from config import AppConfig
-from context import trim_context
-from files import inject_files
-from messages import ChatHistory, OpenAIMessage, build_openai_messages, user_message
+from gigavibe.config import AppConfig
+from gigavibe.context import trim_context
+from gigavibe.files import inject_files
+from gigavibe.messages import ChatHistory, OpenAIMessage, build_openai_messages, user_message
 
 
 class ChatSession:

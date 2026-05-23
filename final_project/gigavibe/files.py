@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 from re import Match
 
-from errors import FileInjectionError
+from gigavibe.errors import FileInjectionError
 
 
 _FILE_PATTERN = re.compile(r'@::(.*?)::')

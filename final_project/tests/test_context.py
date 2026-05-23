@@ -1,5 +1,5 @@
-from context import trim_context
-from messages import assistant_message, user_message
+from gigavibe.context import trim_context
+from gigavibe.messages import assistant_message, user_message
 
 
 def test_does_not_change_messages_without_limits() -> None:

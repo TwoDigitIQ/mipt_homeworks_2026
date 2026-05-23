@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from config import load_config
-from errors import ConfigError
+from gigavibe.config import load_config
+from gigavibe.errors import ConfigError
 
 
 _ENV_NAMES = (

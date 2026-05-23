@@ -5,7 +5,7 @@ from typing import TypeAlias
 
 import yaml
 
-from errors import ConfigError
+from gigavibe.errors import ConfigError
 
 
 ConfigData: TypeAlias = dict[str, object]

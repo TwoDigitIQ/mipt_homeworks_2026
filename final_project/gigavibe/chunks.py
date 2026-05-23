@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Literal
 
-from errors import ChunkCommandError
+from gigavibe.errors import ChunkCommandError
 
 
 ChunkMode = Literal['paragraph', 'len']

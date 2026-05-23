@@ -1,13 +1,13 @@
 import os
 from pathlib import Path
 
-from chat import ChatSession
-from chunks import is_chunk_command, parse_chunk_command, split_text
-from config import load_config
-from errors import ChunkCommandError, ConfigError, FileInjectionError, LLMError
-from files import read_text_file
-from llm import LLMClient
-from messages import OpenAIMessage
+from gigavibe.chat import ChatSession
+from gigavibe.chunks import is_chunk_command, parse_chunk_command, split_text
+from gigavibe.config import load_config
+from gigavibe.errors import ChunkCommandError, ConfigError, FileInjectionError, LLMError
+from gigavibe.files import read_text_file
+from gigavibe.llm import LLMClient
+from gigavibe.messages import OpenAIMessage
 
 
 _EXIT_COMMAND = r'\q'
@@ -16,7 +16,8 @@ _RESET_COMMAND = '/reset'
 
 def run() -> None:
     try:
-        config = load_config(Path(__file__).with_name('config.yaml'))
+        config_path = Path(__file__).resolve().parents[1] / 'config.yaml'
+        config = load_config(config_path)
     except ConfigError as exc:
         print(f'Config error: {exc}')
         return

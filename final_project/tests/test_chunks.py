@@ -1,6 +1,6 @@
 import pytest
 
-from chunks import (
+from gigavibe.chunks import (
     ChunkOptions,
     is_chunk_command,
     parse_chunk_command,
@@ -8,7 +8,7 @@ from chunks import (
     split_by_paragraphs,
     split_text,
 )
-from errors import ChunkCommandError
+from gigavibe.errors import ChunkCommandError
 
 
 def test_detects_chunk_command() -> None:

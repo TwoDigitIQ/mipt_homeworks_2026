@@ -75,12 +75,14 @@ python final_project/main.py
 ```text
 final_project/
   main.py       точка входа
-  cli.py        консольный интерфейс и команды
-  chat.py       состояние сессии, история и подготовка сообщений
-  llm.py        OpenAI-compatible клиент
-  config.py     загрузка и валидация настроек
-  messages.py   представление сообщений
-  context.py    ограничение длины контекста
-  files.py      подстановка файлов через @::filepath::
-  chunks.py     разбиение файлов на чанки
-  errors.py     ошибки приложения
+  gigavibe/
+	cli.py        консольный интерфейс и команды
+	chat.py       состояние сессии, история и подготовка сообщений
+	llm.py        OpenAI-compatible клиент
+	config.py     загрузка и валидация настроек
+	messages.py   представление сообщений
+	context.py    ограничение длины контекста
+	files.py      подстановка файлов через @::filepath::
+	chunks.py     разбиение файлов на чанки
+	errors.py     ошибки приложения
+  tests/

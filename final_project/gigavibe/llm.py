@@ -3,9 +3,9 @@ from typing import Any, cast
 
 from openai import OpenAI, OpenAIError
 
-from config import AppConfig
-from errors import LLMError
-from messages import OpenAIMessage
+from gigavibe.config import AppConfig
+from gigavibe.errors import LLMError
+from gigavibe.messages import OpenAIMessage
 
 
 class LLMClient:

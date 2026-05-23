@@ -1,4 +1,4 @@
-from messages import Message
+from gigavibe.messages import Message
 
 
 def trim_context(

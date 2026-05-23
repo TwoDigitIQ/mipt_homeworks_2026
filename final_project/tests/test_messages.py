@@ -1,4 +1,4 @@
-from messages import (
+from gigavibe.messages import (
     ChatHistory,
     Message,
     assistant_message,
